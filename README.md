@@ -4,3 +4,17 @@
 - Made in C with the MinilibX
 - Is at 42 norme
 - Works on Mac and Linux
+
+# Structure
+```
+your_project_folder/
+├── Makefile
+└── engine/
+    ├── Makefile
+    ├── srcs/
+    ├── includes/
+    └── mlx/
+        ├── Makefile
+        └── src
+        
+```
