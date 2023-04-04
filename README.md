@@ -15,6 +15,6 @@ your_project_folder/
     ├── includes/
     └── mlx/
         ├── Makefile
-        └── src
+        └── srcs
         
 ```
