@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"mlx.h": "c",
+		"engine.h": "c",
+		"keycodes.h": "c",
+		"project.h": "c",
+		"vector2.h": "c",
+		"draw.h": "c",
+		"image.h": "c"
+	}
+}
