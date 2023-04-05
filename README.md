@@ -14,7 +14,11 @@ your_project_folder/
     ├── srcs/
     ├── includes/
     └── mlx/
-        ├── Makefile
-        └── srcs
-        
+        ├── mlx_linux/
+        │   ├── Makefile
+        │   └── srcs
+        └── mlx_mac/
+            ├── Makefile
+            └── srcs
+
 ```
