@@ -18,7 +18,17 @@ MLX_DIR = $(ENGINE_DIR)/mlx
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
 # X11 libraries
-X11_LIBS = -lXext -lX11
+UNAME := $(shell uname)
+ifeq ($(UNAME), Linux)
+# commands to be executed on Linux
+	X11_LIBS = -lXext -lX11
+else ifeq ($(UNAME), Darwin)
+# commands to be executed on macOS
+	X11_LIBS = -Lengine/mlx -lmlx -framework OpenGL -framework AppKit
+else
+	$(error Unsupported operating system: $(UNAME))
+endif
+#-Lmlx -lmlx -framework OpenGL -framework AppKit
 
 # Default rule
 all: $(ENGINE_LIB) $(MLX_LIB) $(BIN)
@@ -29,7 +39,8 @@ all: $(ENGINE_LIB) $(MLX_LIB) $(BIN)
 
 # Compile the project code and link with the engine, mlx, and X11 libraries
 $(BIN): $(OBJS)
-	$(CC) $(CFLAGS) -Iincludes -o $@ $^ -L$(ENGINE_DIR) -lengine -L$(MLX_DIR) -lmlx $(X11_LIBS)
+	$(CC) $(CFLAGS) -Iincludes -o $@ $^ -L$(ENGINE_DIR) -lengine $(X11_LIBS)
+#	$(CC) $(CFLAGS) -Iincludes -o $@ $^ -L$(ENGINE_DIR) -lengine -L$(MLX_DIR) -lmlx $(X11_LIBS)
 
 # Call the engine and mlx Makefiles
 $(ENGINE_LIB):

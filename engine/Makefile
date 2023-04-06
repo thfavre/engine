@@ -4,6 +4,7 @@ CFLAGS = #-Wall -Wextra -Werror
 
 # Engine source files and object files
 SRCS =	srcs/draw/draw_rect.c \
+		srcs/draw/draw_line.c \
 		srcs/draw/draw_pixel.c \
 		srcs/draw/color.c \
 		srcs/key/on_keyreleased.c \
@@ -20,8 +21,18 @@ OBJS = $(SRCS:.c=.o)
 LIB = libengine.a
 
 # mlx folder and library
-MLX_DIR = mlx
-MLX_LIB = $(MLX_DIR)/libmlx.a
+UNAME := $(shell uname)
+ifeq ($(UNAME), Linux)
+# commands to be executed on Linux
+	MLX_DIR = mlx/mlx_linux
+else ifeq ($(UNAME), Darwin)
+# commands to be executed on macOS
+	MLX_DIR = mlx/mlx_mac
+else
+	$(error Unsupported operating system: $(UNAME))
+endif
+
+MLX_LIB = mlx/libmlx.a
 
 # Default rule
 all: $(MLX_LIB) $(LIB)

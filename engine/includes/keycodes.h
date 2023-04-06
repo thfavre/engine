@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keycodes.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: thfavre <thfavre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 18:24:37 by thomas            #+#    #+#             */
-/*   Updated: 2023/04/04 18:52:29 by thomas           ###   ########.fr       */
+/*   Updated: 2023/04/06 18:34:37 by thfavre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,12 @@
 # define K_TAB 9
 # define K_ENTER 13
 # define K_RETURN K_ENTER
+# define K_ESCAPE 53
+# define K_ESC K_ESCAPE
+# define K_LEFT 123
+# define K_RIGHT 124
+# define K_DOWN 125
+# define K_UP 126
 // TODO
 
 

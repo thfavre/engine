@@ -12,6 +12,7 @@ void	engine_init(void *data, int (*on_update)(t_engine *engine))
 	engine.mlx = mlx_init(); // test is null
 	engine.win = mlx_new_window(engine.mlx, 1920, 1080, "Hello World!");
 	engine.img.img = mlx_new_image(engine.mlx, 1920, 1080);
+	engine.img.size = (t_vector2){1920, 1080};
 	engine.img.addr = mlx_get_data_addr(engine.img.img, &engine.img.bpp,
 		&engine.img.line_len, &engine.img.endian);
 	engine.data = data;

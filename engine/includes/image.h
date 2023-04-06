@@ -1,4 +1,4 @@
-// #include "vector2.h"
+#include "vector2.h"
 
 #ifndef IMAGE_H
 # define IMAGE_H
@@ -10,7 +10,7 @@ typedef struct s_img
 	int			bpp;
 	int			line_len;
 	int			endian;
-	// t_vector2	size;
+	t_vector2	size;
 }			t_img;
 
 #endif
