@@ -22,3 +22,8 @@ your_project_folder/
             └── srcs
 
 ```
+
+# Examples
+## Ideas
+- https://www.cis.upenn.edu/~cis110/13su/hw/hw03/gallery.shtml
+- https://www.cs.princeton.edu/courses/archive/spr15/cos126/art/index.php
