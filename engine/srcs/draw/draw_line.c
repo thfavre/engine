@@ -31,9 +31,9 @@ void	draw_line_1px(t_img img, t_v v, int color)
 	while (++v.xy.x <= v.end_pos.x)
 	{
 		if (v.steep)
-			draw_pixel(&img, (t_vector2){v.xy.y, v.xy.x}, color);
+			engine_draw_pixel(&img, (t_vector2){v.xy.y, v.xy.x}, color);
 		else
-			draw_pixel(&img, (t_vector2){v.xy.x, v.xy.y}, color);
+			engine_draw_pixel(&img, (t_vector2){v.xy.x, v.xy.y}, color);
 		v.error.y += v.error.x;
 		if (v.error.y > v.d.x)
 		{
@@ -46,7 +46,7 @@ void	draw_line_1px(t_img img, t_v v, int color)
 	}
 }
 
-void	draw_line(t_img *img, t_vector2 start_pos, t_vector2 end_pos, \
+void	engine_draw_line(t_img *img, t_vector2 start_pos, t_vector2 end_pos, \
 					int color, int thickness)
 {
 	int	i;

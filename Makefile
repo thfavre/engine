@@ -1,65 +1,30 @@
-# Compiler and flags
 CC = gcc
-CFLAGS = -fsanitize=address #-Wall -Wextra -Werror
+CFLAGS = #-Wall -Wextra -Werror
+TARGET = project
+SRC = srcs/main.c
+OBJ = $(SRC:.c=.o)
+INCLUDES = includes
 
-# Project source files and object files
-SRCS = $(wildcard srcs/*.c)
-OBJS = $(SRCS:.c=.o)
+LIBS = -Lengine -lengine -Lengine/mlx/mlx_linux -lmlx -lXext -lX11 -lm
 
-# Name of the output binary
-BIN = project
 
-# Engine folder and library
-ENGINE_DIR = engine
-ENGINE_LIB = $(ENGINE_DIR)/libengine.a
+all: $(TARGET)
 
-# mlx folder and library
-MLX_DIR = $(ENGINE_DIR)/mlx
-MLX_LIB = $(MLX_DIR)/libmlx.a
+$(TARGET): $(OBJ)
+	$(MAKE) -C engine
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ) $(LIBS)
 
-# X11 libraries
-UNAME := $(shell uname)
-ifeq ($(UNAME), Linux)
-# commands to be executed on Linux
-	X11_LIBS = -lXext -lX11
-else ifeq ($(UNAME), Darwin)
-# commands to be executed on macOS
-	X11_LIBS = -Lengine/mlx -lmlx -framework OpenGL -framework AppKit
-else
-	$(error Unsupported operating system: $(UNAME))
-endif
-#-Lmlx -lmlx -framework OpenGL -framework AppKit
-
-# Default rule
-all: $(ENGINE_LIB) $(MLX_LIB) $(BIN)
-
-# Compile project source files
 %.o: %.c
-	$(CC) $(CFLAGS) -Iincludes -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLUDES) -Iengine/mlx/mlx_linux -Iengine/includes
 
-# Compile the project code and link with the engine, mlx, and X11 libraries
-$(BIN): $(OBJS)
-	$(CC) $(CFLAGS) -Iincludes -o $@ $^ -L$(ENGINE_DIR) -lengine $(X11_LIBS)
-#	$(CC) $(CFLAGS) -Iincludes -o $@ $^ -L$(ENGINE_DIR) -lengine -L$(MLX_DIR) -lmlx $(X11_LIBS)
-
-# Call the engine and mlx Makefiles
-$(ENGINE_LIB):
-	$(MAKE) -C $(ENGINE_DIR)
-
-$(MLX_LIB):
-	$(MAKE) -C $(MLX_DIR)
-
-# Clean rule
 clean:
-	$(MAKE) -C $(ENGINE_DIR) clean
-	rm -f $(OBJS)
+	$(MAKE) -C engine clean
+	rm -f $(OBJ)
 
-# Clean all rule
 fclean: clean
-	$(MAKE) -C $(ENGINE_DIR) fclean
-	rm -f $(BIN)
+	$(MAKE) -C engine fclean
+	rm -f $(TARGET)
 
-# Rebuild rule
 re: fclean all
 
 .PHONY: all clean fclean re

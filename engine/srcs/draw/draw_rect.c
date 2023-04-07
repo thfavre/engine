@@ -9,7 +9,7 @@
  * @param size: t_vector2 struct containing the width and height of the rectangle
  * @param color: color value of the rectangle to be drawn
 */
-void	draw_rect(t_img *img, t_vector2 pos, t_vector2 size, int color)
+void	engine_draw_rect(t_img *img, t_vector2 pos, t_vector2 size, int color)
 {
 	int	x;
 	int	y;
@@ -21,7 +21,7 @@ void	draw_rect(t_img *img, t_vector2 pos, t_vector2 size, int color)
 		while (y < size.y)
 		{
 			// printf("x: %d, y: %d\n", pos.x + x, pos.y + y);
-			draw_pixel(img, (t_vector2){pos.x + x, pos.y + y}, color);
+			engine_draw_pixel(img, (t_vector2){pos.x + x, pos.y + y}, color);
 			y++;
 		}
 		x++;

@@ -9,7 +9,7 @@
 void	engine_close(t_engine *engine)
 {
 	// mlx_do_key_autorepeaton(engine->mlx);
-	mlx_destroy_window(engine->mlx, engine->win);
+	// mlx_destroy_window(engine->mlx, engine->win);
 	free(engine->mlx);
 	exit(0);
 }

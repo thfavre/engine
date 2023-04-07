@@ -1,66 +1,52 @@
-# Compiler and flags
 CC = gcc
+AR = ar
 CFLAGS = #-Wall -Wextra -Werror
-
-# Engine source files and object files
-SRCS =	srcs/draw/draw_rect.c \
+NAME = libengine.a
+SRC = srcs/draw/draw_rect.c \
 		srcs/draw/draw_line.c \
 		srcs/draw/draw_pixel.c \
 		srcs/draw/color.c \
 		srcs/key/on_keyreleased.c \
 		srcs/key/on_keypressed.c \
 		srcs/key/keys_init.c \
-		srcs/engine_init.c \
-		srcs/engine_frame_update.c \
-		srcs/engine_close.c
+		srcs/init.c \
+		srcs/frame_update.c \
+		srcs/close.c
+OBJ = $(SRC:.c=.o)
+INCLUDES = includes
 
+# Platform detection
+UNAME_S := $(shell uname -s)
 
-OBJS = $(SRCS:.c=.o)
-
-# Name of the output static library
-LIB = libengine.a
-
-# mlx folder and library
-UNAME := $(shell uname)
-ifeq ($(UNAME), Linux)
-# commands to be executed on Linux
-	MLX_DIR = mlx/mlx_linux
-else ifeq ($(UNAME), Darwin)
-# commands to be executed on macOS
-	MLX_DIR = mlx/mlx_mac
+ifeq ($(UNAME_S),Linux)
+  LIBS = -lmlx -lXext -lX11 -lm
+  MLX_DIR = mlx/mlx_linux
 else
-	$(error Unsupported operating system: $(UNAME))
+  LIBS = -lmlx -framework OpenGL -framework AppKit
+  MLX_DIR = mlx/mlx_mac
 endif
 
-MLX_LIB = mlx/libmlx.a
 
-# Default rule
-all: $(MLX_LIB) $(LIB)
+all: $(NAME)
 
-# Compile engine source files
-%.o: %.c
-	$(CC) $(CFLAGS) -I$(MLX_DIR) -Iincludes -c $< -o $@
-
-# Create the engine static library
-$(LIB): $(OBJS)
-	ar rcs $@ $^
-	ranlib $@
-
-# Call the mlx Makefile
-$(MLX_LIB):
+$(MLX_DIR)/libmlx.a:
 	$(MAKE) -C $(MLX_DIR)
 
-# Clean rule
+$(NAME): $(OBJ)
+	$(MAKE) -C $(MLX_DIR)
+	$(AR) rcs $(NAME) $(OBJ)
+#	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L$(MLX_DIR) $(LIBS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@  -I$(INCLUDES) -I$(MLX_DIR)
+
 clean:
 	$(MAKE) -C $(MLX_DIR) clean
-	rm -f $(OBJS)
+	rm -f $(OBJ)
 
-# Clean all rule
 fclean: clean
-	$(MAKE) -C $(MLX_DIR) fclean
-	rm -f $(LIB)
+	rm -f $(NAME)
 
-# Rebuild rule
 re: fclean all
 
 .PHONY: all clean fclean re

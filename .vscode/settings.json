@@ -6,6 +6,9 @@
 		"project.h": "c",
 		"vector2.h": "c",
 		"draw.h": "c",
-		"image.h": "c"
+		"image.h": "c",
+		"math.h": "c",
+		"stdbool.h": "c",
+		"stdlib.h": "c"
 	}
 }

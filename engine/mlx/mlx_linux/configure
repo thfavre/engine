@@ -111,7 +111,7 @@ main(){
 	log_info "Found X11 include path directory: $xlib_inc"
 
 	log_info 'Generate "makefile.gen" from template "makefile.mk"'
-		echo "INC=$xlib_inc"  	 	    	>  Makefile.gen 
+		echo "INC=$xlib_inc"  	 	    	>  Makefile.gen
 		cat Makefile.mk | grep -v %%%%  	>> Makefile.gen
 	log_info 'Generate "test/makefile.gen" from template "test/makefile.mk"'
 		echo "INC=$xlib_inc"				>  test/Makefile.gen

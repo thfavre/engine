@@ -4,7 +4,6 @@
 # include <stdbool.h>
 # include <stdlib.h>
 
-#include "../engine/includes/engine.h"
-#include "../engine/mlx/mlx.h"
+#include "engine.h"
 
 #endif

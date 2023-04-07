@@ -48,6 +48,7 @@ $(NAME)	: $(OBJ)
 	ar -r $(NAME) $(OBJ)
 	ranlib $(NAME)
 	cp $(NAME) $(NAME_UNAME)
+	cp $(NAME) ../$(NAME)
 
 check: all
 	@test/run_tests.sh
@@ -64,5 +65,7 @@ clean	:
 	rm -rf $(OBJ_DIR)/ $(NAME) $(NAME_UNAME) *~ core *.core
 
 fclean	: clean
+	@printf "aaaaRemoved ../$(NAME)\n"
+	rm -f ../$(NAME)
 
-.PHONY: all check show clean
+.PHONY: all check show clean fclean

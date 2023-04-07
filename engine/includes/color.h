@@ -12,6 +12,7 @@
 # define COLOR_MAGENTA	0xFF00FF
 # define COLOR_CYAN		0x00FFFF
 
-int	rgb(uint8_t red, uint8_t green, uint8_t blue);
+int	engine_rgb(uint8_t red, uint8_t green, uint8_t blue);
+int	engine_add_color(int color, int to_add_color);
 
 #endif

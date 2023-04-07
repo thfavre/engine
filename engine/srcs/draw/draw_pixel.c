@@ -8,7 +8,7 @@
  * @param pos: t_vector2 struct containing the (x, y) coordinates of the pixel
  * @param color: color value of the pixel to be drawn
  */
-void	draw_pixel(t_img *img, t_vector2 pos, int color)
+void	engine_draw_pixel(t_img *img, t_vector2 pos, int color)
 {
 	char	*pixel;
 

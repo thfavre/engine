@@ -5,7 +5,7 @@
 # include <stdbool.h>
 # include <stdlib.h>
 
-# include "../mlx/mlx.h"
+# include "mlx.h" //../mlx/mlx.h
 # include "image.h"
 # include "events.h"
 # include "key.h"
