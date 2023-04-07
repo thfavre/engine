@@ -83,8 +83,10 @@ your_project_folder/
 <details>
   <summary><b>Result</b></summary>
     <p>
-        
-        adsdsdasd
+    
+   [![Watch the video]fractal_canopy.mp4)]
+   
+   <img src="fractal_canopy.mp4" width="500" height="500" />
     
   </p>
   </summary>
