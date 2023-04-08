@@ -80,14 +80,21 @@ your_project_folder/
   </p>
   </summary>
 </details>
-<details>
+
+<details open>
   <summary><b>Result</b></summary>
-    <p>
-    
-   [![Watch the video]fractal_canopy.mp4)]
-   
-   <img src="fractal_canopy.mp4" width="500" height="500" />
-    
+  <p>
+     <img src="https://user-images.githubusercontent.com/67341005/230717007-7219099f-7461-4b85-a280-1cbd1e76328d.gif" width="500" height="500" />
   </p>
   </summary>
 </details>
+
+## Random results
+<details open>
+  <summary><b>Result</b></summary>
+  <p>
+     <img src="https://user-images.githubusercontent.com/67341005/230725601-e18f0619-453b-41ed-8d9d-4f9433e5c032.gif" width="500" height="500" />
+  </p>
+  </summary>
+</details>
+
