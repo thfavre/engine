@@ -80,14 +80,15 @@ your_project_folder/
   </p>
   </summary>
 </details>
-<details>
+<details open>
+
+
   <summary><b>Result</b></summary>
-    <p>
-    
-   [![Watch the video]fractal_canopy.mp4)]
-   
-   <img src="fractal_canopy.mp4" width="500" height="500" />
-    
+  <p>
+     <img src="https://user-images.githubusercontent.com/67341005/230717007-7219099f-7461-4b85-a280-1cbd1e76328d.gif" width="500" height="500" />
   </p>
   </summary>
+
 </details>
+
+
