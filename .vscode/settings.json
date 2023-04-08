@@ -9,6 +9,11 @@
 		"image.h": "c",
 		"math.h": "c",
 		"stdbool.h": "c",
-		"stdlib.h": "c"
+		"stdlib.h": "c",
+		"color.h": "c",
+		"typeinfo": "c",
+		"signal.h": "c",
+		"circle.h": "c",
+		"stdint.h": "c"
 	}
 }

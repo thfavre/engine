@@ -12,6 +12,8 @@
 # include "vector2.h"
 # include "draw.h"
 # include "color.h"
+# include "rect.h"
+# include "circle.h"
 
 typedef struct s_engine
 {
@@ -20,7 +22,17 @@ typedef struct s_engine
 	t_img	img;
 	void	*data;
 	bool	key_pressed[MAX_KEYS];
+	float	dt;
 }	t_engine;
+
+
+// typedef struct {
+//     int id;
+//     char* name;
+// } t_employee;
+
+// #define EMPLOYEE(...) ((t_employee) { .id = 13, .name = "none", __VA_ARGS__ })
+
 
 void	engine_init(void *data, int (*on_update)(t_engine *engine));
 void	engine_frame_update(t_engine *engine);

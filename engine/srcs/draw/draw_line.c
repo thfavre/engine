@@ -51,9 +51,7 @@ void	engine_draw_line(t_img *img, t_vector2 start_pos, t_vector2 end_pos, \
 {
 	int	i;
 	t_v	v;
-	// int	line_width;
 
-	// line_width = 2;
 	i = -thickness / 2;
 	while (i <= thickness / 2)
 	{

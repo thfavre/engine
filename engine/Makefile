@@ -5,6 +5,11 @@ NAME = libengine.a
 SRC = srcs/draw/draw_rect.c \
 		srcs/draw/draw_line.c \
 		srcs/draw/draw_pixel.c \
+		srcs/draw/draw_circle.c \
+		srcs/draw/circle/draw_filled_circle.c \
+		srcs/draw/circle/draw_thin_circle.c \
+		srcs/draw/circle/draw_circle_with_thickness.c \
+		srcs/draw/draw_background.c \
 		srcs/draw/color.c \
 		srcs/key/on_keyreleased.c \
 		srcs/key/on_keypressed.c \
