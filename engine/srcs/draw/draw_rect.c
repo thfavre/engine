@@ -1,5 +1,6 @@
 # include "image.h"
 # include "rect.h"
+# include "draw.h"
 
 /*
  * Draws a rectangle on an image at the specified (x, y) position, given by

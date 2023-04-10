@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = #-Wall -Wextra -Werror
+CFLAGS = -g3 -fsanitize=address #-Wall -Wextra -Werror
 TARGET = project
 SRC = srcs/main.c
 OBJ = $(SRC:.c=.o)

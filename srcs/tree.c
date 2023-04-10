@@ -54,5 +54,5 @@ int	on_update(t_engine *engine)
 
 
 int main(){
-	engine_init(NULL, &on_update);
+	engine_init(NULL, &on_update, NULL);
 }

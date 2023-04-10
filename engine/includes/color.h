@@ -5,6 +5,7 @@
 
 int	engine_rgb(uint8_t red, uint8_t green, uint8_t blue);
 int	engine_add_color(int color, int to_add_color);
+int	engine_sub_color(int color, int to_sub_color);
 
 // Colors ref: https://github.com/pygame/pygame/blob/main/src_py/colordict.py
 

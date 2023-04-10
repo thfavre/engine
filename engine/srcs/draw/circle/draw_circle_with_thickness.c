@@ -1,10 +1,11 @@
 #include "vector2.h"
 #include "image.h"
 #include "circle.h"
+#include "draw.h"
 
-void xLine(t_img *img, int x1, int x2, int y, int colour)
+void xLine(t_img *img, int x1, int x2, int y, int color)
 {
-	while (x1 <= x2) engine_draw_pixel(img, (t_vector2){x1++, y}, colour);
+	while (x1 <= x2) engine_draw_pixel(img, (t_vector2){x1++, y}, color);
 }
 
 void yLine(t_img *img, t_vector2 pos, int y2, int colour)
@@ -24,7 +25,8 @@ void draw_circle_with_thickness(t_img *img, t_circle circle)
 	int erro = 1 - xo;
 	int erri = 1 - xi;
 
-	while(xo >= y) {
+	while(xo >= y)
+	{
 		xLine(img, circle.center.x + xi, circle.center.x + xo, circle.center.y + y,  circle.color);
 		yLine(img, (t_vector2){circle.center.x + y,  circle.center.y + xi}, circle.center.y + xo, circle.color);
 		xLine(img, circle.center.x - xo, circle.center.x - xi, circle.center.y + y,  circle.color);

@@ -14,6 +14,8 @@
 		"typeinfo": "c",
 		"signal.h": "c",
 		"circle.h": "c",
-		"stdint.h": "c"
+		"stdint.h": "c",
+		"x.h": "c",
+		"mlx_int.h": "c"
 	}
 }

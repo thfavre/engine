@@ -34,7 +34,8 @@ typedef struct s_engine
 // #define EMPLOYEE(...) ((t_employee) { .id = 13, .name = "none", __VA_ARGS__ })
 
 
-void	engine_init(void *data, int (*on_update)(t_engine *engine));
+void	engine_init(void *data, int (*on_update)(t_engine *engine),
+			int (*on_close)(t_engine *engine));
 void	engine_frame_update(t_engine *engine);
 void	engine_close(t_engine *engine);
 

@@ -1,6 +1,7 @@
 #include "vector2.h"
 #include "image.h"
 #include "circle.h"
+#include "draw.h"
 
 void draw_circle_octant_points(t_img *img, t_vector2 center, t_vector2 pos, int color)
 {

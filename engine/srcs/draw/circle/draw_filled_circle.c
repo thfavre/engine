@@ -1,6 +1,8 @@
 #include "vector2.h"
 #include "image.h"
 #include "circle.h"
+#include "math.h"
+#include "draw.h"
 
 // algo from (https://stackoverflow.com/a/59211338s)
 void	draw_filled_circle(t_img *img, t_circle circle)
