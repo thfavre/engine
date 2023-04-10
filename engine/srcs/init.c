@@ -21,7 +21,7 @@ void	engine_init(void *data, int (*on_update)(t_engine *engine),
 	mlx_hook(engine.win, KeyPress, KeyPressMask, on_keypressed, &engine.key_pressed);
 	mlx_hook(engine.win, KeyRelease, KeyReleaseMask, on_keyreleased, &engine.key_pressed);
 
-	mlx_hook(engine.win, DestroyNotify, NoEventMask, on_close, &engine); // add a struct to pass the engine and the user callback
+	mlx_hook(engine.win, DestroyNotify, NoEventMask, on_close, &engine); // add a struct to pass the engine and the user callback?
 	mlx_loop_hook(engine.mlx, on_update, &engine);
 	mlx_loop(engine.mlx);
 

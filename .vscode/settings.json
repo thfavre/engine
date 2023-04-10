@@ -16,6 +16,8 @@
 		"circle.h": "c",
 		"stdint.h": "c",
 		"x.h": "c",
-		"mlx_int.h": "c"
+		"mlx_int.h": "c",
+		"rect.h": "c",
+		"stdio.h": "c"
 	}
 }
