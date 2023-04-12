@@ -25,14 +25,15 @@ void	engine_draw_rect(t_img *img, t_rect rect, int color)
 	adjust_rect_in_image(&rect, img);
 	chunk_size = rect.size.x - rect.size.x % 12;
 	y = 0;
+	pixel_ptr = (unsigned int *)(img->addr + ((y + rect.pos.y) * img->line_len + rect.pos.x * (img->bpp / 8)));
 	while (y < rect.size.y)
 	{
-		pixel_ptr = (unsigned int *)(img->addr + ((y + rect.pos.y) * img->line_len + rect.pos.x * (img->bpp / 8)));
 		draw_block(pixel_ptr, chunk_size, color);
 		x = chunk_size;
 		while (x < rect.size.x)
 			*(pixel_ptr + x++) = color;
 		y++;
+		pixel_ptr +=  img->size.x;
 	}
 }
 

@@ -35,7 +35,7 @@ void	engine_frame_update(t_engine *engine)
 	double fps = 1.0 / engine->dt;
 	all_fps += fps;
 	frame_count++;
-	if (frame_count == 100)
+	if (frame_count == 400)
 	{
 		printf("average fps: %d  (dt: %f)\n", all_fps / frame_count, engine->dt);
 		all_fps = 0;
