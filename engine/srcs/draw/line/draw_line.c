@@ -1,4 +1,7 @@
-#include "engine.h"
+#include <stdbool.h>
+#include "vector2.h"
+#include "image.h"
+#include "draw.h"
 
 void	swap(int *a, int *b)
 {

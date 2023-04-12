@@ -3,7 +3,8 @@ AR = ar
 CFLAGS = #-Wall -Wextra -Werror
 NAME = libengine.a
 SRC = srcs/draw/draw_rect.c \
-		srcs/draw/draw_line.c \
+		srcs/draw/line/draw_line.c \
+		srcs/draw/line/draw_x_line.c \
 		srcs/draw/draw_pixel.c \
 		srcs/draw/circle/draw_circle.c \
 		srcs/draw/circle/draw_filled_circle.c \

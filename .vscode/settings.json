@@ -18,6 +18,7 @@
 		"x.h": "c",
 		"mlx_int.h": "c",
 		"rect.h": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"cmath": "c"
 	}
 }

@@ -31,13 +31,13 @@ void	engine_frame_update(t_engine *engine)
 	mlx_put_image_to_window(engine->mlx, engine->win, \
 		engine->img.img, 0, 0);
 	// DEBUG stuff
-	double dt = get_elapsed_time();
-	double fps = 1.0 / dt;
+	engine->dt = get_elapsed_time();
+	double fps = 1.0 / engine->dt;
 	all_fps += fps;
 	frame_count++;
 	if (frame_count == 100)
 	{
-		printf("average fps: %d  (dt: %f)\n", all_fps / frame_count, dt);
+		printf("average fps: %d  (dt: %f)\n", all_fps / frame_count, engine->dt);
 		all_fps = 0;
 		frame_count = 0;
 	}
