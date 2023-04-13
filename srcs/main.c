@@ -6,7 +6,7 @@
 /*   By: thfavre <thfavre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 17:01:37 by thomas            #+#    #+#             */
-/*   Updated: 2023/04/12 12:51:27 by thfavre          ###   ########.fr       */
+/*   Updated: 2023/04/13 11:43:36 by thfavre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Questions :
 #include "engine.h"
 #include <stdlib.h>
 
-BALL_NB = 1000;
+int BALL_NB = 1000;
 
 typedef struct s_ball
 {

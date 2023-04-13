@@ -4,6 +4,9 @@
 #include "math.h"
 #include "draw.h"
 
+void	draw_x_line(t_img *img, t_vector2 start, int length, int color, int thickness);
+
+
 // algo from (https://stackoverflow.com/a/59211338s)
 // __attribute__ ((optimize(1))) // needed?
 void	draw_filled_circle(t_img *img, t_circle circle)
@@ -12,14 +15,23 @@ void	draw_filled_circle(t_img *img, t_circle circle)
 	int	radius_sqr = radius * radius;
 	int	color = circle.color;
 
-	for (int x = -radius; x < radius ; x++)
+	for (int y = -radius; y < radius; y++)
 	{
-		int hh = (int)sqrt(radius_sqr - x * x);
-		int rx = circle.center.x + x;
-		int ph = circle.center.y + hh;
-		for (int y = circle.center.y-hh; y < ph; y++)
-			engine_draw_pixel(img, (t_vector2){rx, y}, color);
+		int ww = (int)sqrt(radius_sqr - y * y);
+		int ry = circle.center.y + y;
+		int pw = circle.center.x + ww;
+		// engine_draw_rect(img, (t_rect){(t_vector2){circle.center.x - ww, ry}, (t_vector2){pw-(circle.center.x-ww), 1}}, color);
+
+		draw_x_line(img, (t_vector2){circle.center.x - ww, ry}, pw-(circle.center.x-ww), color, 1);
 	}
+	// for (int x = -radius; x < radius ; x++)
+	// {
+	// 	int hh = (int)sqrt(radius_sqr - x * x);
+	// 	int rx = circle.center.x + x;
+	// 	int ph = circle.center.y + hh;
+	// 	for (int y = circle.center.y-hh; y < ph; y++)
+	// 		engine_draw_pixel(img, (t_vector2){rx, y}, color);
+	// }
 }
 
 // void draw_filled_circle(t_img *img, t_circle circle) {

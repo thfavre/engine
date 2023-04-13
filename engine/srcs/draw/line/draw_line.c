@@ -1,4 +1,8 @@
-#include "engine.h"
+#include <stdbool.h>
+#include "vector2.h"
+#include "image.h"
+#include "draw.h"
+#include <stdlib.h>
 
 void	swap(int *a, int *b)
 {
@@ -46,8 +50,7 @@ void	draw_line_1px(t_img img, t_v v, int color)
 	}
 }
 
-void	engine_draw_line(t_img *img, t_vector2 start_pos, t_vector2 end_pos, \
-					int color, int thickness)
+void	engine_draw_line(t_img *img, t_vector2 start_pos, t_vector2 end_pos, int color, int thickness)
 {
 	int	i;
 	t_v	v;
@@ -66,4 +69,5 @@ void	engine_draw_line(t_img *img, t_vector2 start_pos, t_vector2 end_pos, \
 		draw_line_1px(*img, v, color);
 		i++;
 	}
+
 }
