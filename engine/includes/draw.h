@@ -7,6 +7,7 @@
 # include "circle.h"
 
 void	engine_draw_pixel(t_img *img, t_vector2 pos, int color);
+void	engine_draw_pixel_xy(t_img *img, int x, int y, int color);
 // void	engine_draw_pixel_xy(t_img *img, int x, int y, int color);
 void	engine_draw_rect(t_img *img, t_rect rect, int color);
 void	engine_draw_line(t_img *img, t_vector2 start_pos, t_vector2 end_pos, int color, int thickness);

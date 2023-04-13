@@ -10,15 +10,18 @@
  */
 void	engine_draw_pixel(t_img *img, t_vector2 pos, int color)
 {
-	unsigned int	*pixel;
+	char	*pixel;
 
 	if (pos.x >= 0 && pos.x < img->size.x && pos.y >= 0 && pos.y < img->size.y)
 	{
 		pixel = img->addr + (pos.y * img->line_len + pos.x * (img->bpp / 8));
-		*pixel = color;
+		*(unsigned int*)pixel = color;
 	}
 }
+void	engine_draw_pixel_xy(t_img *img, int x, int y, int color)
+{
 
+}
 // void	engine_draw_pixel_xy(t_img *img, int x, int y, int color)
 // {
 // 	char	*pixel;

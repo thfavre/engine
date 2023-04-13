@@ -6,7 +6,7 @@
 /*   By: thfavre <thfavre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 18:24:37 by thomas            #+#    #+#             */
-/*   Updated: 2023/04/06 18:34:37 by thfavre          ###   ########.fr       */
+/*   Updated: 2023/04/12 12:53:48 by thfavre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,11 @@
 # define K_RIGHT 124
 # define K_DOWN 125
 # define K_UP 126
+#  define K_A 0
+#  define K_W 13
+#  define K_S 1
+#  define K_D 2
+
 // TODO
 
 

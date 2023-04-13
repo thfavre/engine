@@ -17,12 +17,16 @@ void	engine_draw_rect(t_img *img, t_rect rect, int color)
 	int	y;
 
 	x = 0;
-	while (x < rect.size.x)
+	int rect_pos_x = rect.pos.x;
+	int rect_pos_y = rect.pos.y;
+	int rect_size_x = rect.size.x;
+	int rect_size_y = rect.size.y;
+
+	while (x < rect_size_x)
 	{
 		y = 0;
-		while (y < rect.size.y)
+		while (y <rect_size_y)
 		{
-			// printf("x: %d, y: %d\n", pos.x + x, pos.y + y);
 			engine_draw_pixel(img, (t_vector2){rect.pos.x + x, rect.pos.y + y}, color);
 			y++;
 		}

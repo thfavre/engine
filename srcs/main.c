@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: thfavre <thfavre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 17:01:37 by thomas            #+#    #+#             */
-/*   Updated: 2023/04/11 00:30:08 by thomas           ###   ########.fr       */
+/*   Updated: 2023/04/12 12:51:27 by thfavre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Questions :
 #include "engine.h"
 #include <stdlib.h>
 
-BALL_NB = 100;
+BALL_NB = 1000;
 
 typedef struct s_ball
 {
@@ -61,7 +61,7 @@ t_ball	*create_balls(int nb)
 	i = 0;
 	while (i < nb)
 	{
-		balls[i] = create_ball(100, COLOR_ALICEBLUE, (t_fvector2){500, 500}, random_velocity(-4.0f, 4.0f));
+		balls[i] = create_ball(50, COLOR_ALICEBLUE, (t_fvector2){500, 500}, random_velocity(-4.0f, 4.0f));
 		i++;
 	}
 	return (balls);
