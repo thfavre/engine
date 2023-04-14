@@ -47,7 +47,7 @@ int	on_update(t_engine *engine)
 	engine_draw_background(&engine->img, engine_rgb(10, 10, 10));
 
 	t_rect rect;
-	rect.size.x = 8;
+	rect.size.x = 28;
 	rect.size.y = rect.size.x;
 	int mx, my;
 	mlx_mouse_get_pos(engine->mlx, engine->win, &mx, &my);
@@ -58,10 +58,11 @@ int	on_update(t_engine *engine)
 		{
 			rect.pos.x = x;
 			rect.pos.y = y;
-			engine_draw_rect(&engine->img, rect, engine_rgb(mx+i, my+j, (i*1.5 + j)/1000)); //0x119000 + i/2 + j*1.4 + COLOR_OFFSET
+			// engine_draw_rect(&engine->img, rect, engine_rgb(mx+i, my+j, (i*1.5 + j)/1000)); //0x119000 + i/2 + j*1.4 + COLOR_OFFSET
+			engine_draw_rect(&engine->img, rect, 0x119000 + i/2 + j*1.4 + COLOR_OFFSET); //
 		}
 	}
-	// COLOR_OFFSET += 0.052;
+	COLOR_OFFSET += 0.152;
 	// int total_rect = 0;
 	// for (int y = 10; y < 200*5; y+=200)
 	// 	for (int x = 10; x < 200*9; x+=200, total_rect++)

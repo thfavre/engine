@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = #-g3 -fsanitize=address #-Wall -Wextra -Werror
 TARGET = project
-SRC = srcs/tree.c
+SRC = srcs/main.c
 OBJ = $(SRC:.c=.o)
 INCLUDES = includes
 
