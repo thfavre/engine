@@ -5,7 +5,7 @@ SRC = srcs/main.c
 OBJ = $(SRC:.c=.o)
 INCLUDES = includes
 
-LIBS = -Lengine -lengine -Lengine/mlx/mlx_linux -lmlx -lXext -lX11 -lm
+LIBS = -Lengine -lengine -Lengine/mlx/mlx_linux -lmlx -lXext -lX11 -lm #-Lengine -lengine -Lengine/mlx -lmlx -framework OpenGL -framework AppKit
 
 
 all: $(TARGET)
@@ -15,7 +15,7 @@ $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ) $(LIBS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLUDES) -Iengine/mlx/mlx_linux -Iengine/includes
+	$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLUDES) -Iengine/mlx/mlx_mac -Iengine/includes
 
 clean:
 	$(MAKE) -C engine clean

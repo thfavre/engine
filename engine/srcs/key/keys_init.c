@@ -11,4 +11,5 @@ void	keys_init(bool *key_pressed)
 	i = 0;
 	while (i < MAX_KEYS)
 		key_pressed[i++] = false;
+	// TODO : ft_bzero(key_pressed, MAX_KEYS);
 }

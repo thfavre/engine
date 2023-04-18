@@ -4,7 +4,7 @@
 #include "color.h"
 
 static void	adjust_rect_in_image(t_rect *rect, t_img *img);
-static void	draw_block(unsigned int *pixel_ptr, int chunk_size, int color);
+void	draw_block(unsigned int *pixel_ptr, int chunk_size, int color);
 
 /*
  * Draws a rectangle on an image at the specified (x, y) position, given by
@@ -33,7 +33,7 @@ void	engine_draw_rect(t_img *img, t_rect rect, int color)
 		while (x < rect.size.x)
 			*(pixel_ptr + x++) = color;
 		y++;
-		pixel_ptr +=  img->size.x;
+		pixel_ptr += img->size.x;
 	}
 }
 
@@ -55,7 +55,7 @@ static void	adjust_rect_in_image(t_rect *rect, t_img *img)
 		rect->size.y = img->size.y - rect->pos.y;
 }
 
-static void	draw_block(unsigned int *pixel_ptr, int chunk_size, int color)
+void	draw_block(unsigned int *pixel_ptr, int chunk_size, int color)
 {
 	int	x;
 	// int	offset;

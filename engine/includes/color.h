@@ -8,6 +8,7 @@ int	engine_add_color(int color, int to_add_color);
 int	engine_sub_color(int color, int to_sub_color);
 
 // Colors ref: https://github.com/pygame/pygame/blob/main/src_py/colordict.py
+// Colors preview: https://www.pygame.org/docs/ref/color_list.html
 
 # define COLOR_ALICEBLUE 0xf0f8ff
 # define COLOR_ANTIQUEWHITE 0xfaebd7

@@ -4,6 +4,48 @@
 #include "math.h"
 #include "draw.h"
 
+void	draw_x_line(t_img *img, t_vector2 start, int length, int color, int thickness);
+// void	draw_block(unsigned int *pixel_ptr, int chunk_size, int color);
+
+
+// void draw_filled_circle_bresenham(t_img *img, t_circle circle) {
+// 	int x = 0;
+// 	int y = circle.radius;
+// 	int d = 3 - 2 * circle.radius;
+
+// 	unsigned int *center_pixel_ptr = (unsigned int *)(img->addr + (circle.center.y * img->line_len + circle.center.x * (img->bpp / 8)));
+// 	int line_step = img->line_len / (img->bpp / 8);
+
+// 	while (x <= y) {
+// 		draw_horizontal_line(center_pixel_ptr - x - y * line_step, 2 * x + 1, circle.color);
+// 		draw_horizontal_line(center_pixel_ptr - x + y * line_step, 2 * x + 1, circle.color);
+// 		draw_horizontal_line(center_pixel_ptr - y - x * line_step, 2 * y + 1, circle.color);
+// 		draw_horizontal_line(center_pixel_ptr - y + x * line_step, 2 * y + 1, circle.color);
+
+// 		x++;
+// 		if (d <= 0) {
+// 			d += 4 * x + 6;
+// 		} else {
+// 			d += 4 * (x - y) + 10;
+// 			y--;
+// 		}
+
+// 	}
+// }
+
+// void draw_horizontal_line(unsigned int *pixel_ptr, int length, unsigned int color) {
+// 	// Draw the chunk
+// 	int chunk_size = length - (length % 12);
+// 	draw_block(pixel_ptr, chunk_size, color);
+
+// 	// Draw the remaining pixels
+// 	for (int x = chunk_size; x < length; x++) {
+// 		pixel_ptr[x] = color;
+// 	}
+// }
+
+
+
 // algo from (https://stackoverflow.com/a/59211338s)
 // __attribute__ ((optimize(1))) // needed?
 void	draw_filled_circle(t_img *img, t_circle circle)
@@ -12,14 +54,52 @@ void	draw_filled_circle(t_img *img, t_circle circle)
 	int	radius_sqr = radius * radius;
 	int	color = circle.color;
 
-	for (int x = -radius; x < radius ; x++)
+	// --------------  210 FPS -------------- //
+	for (int y = -radius; y < radius; y++)
 	{
-		int hh = (int)sqrt(radius_sqr - x * x);
-		int rx = circle.center.x + x;
-		int ph = circle.center.y + hh;
-		for (int y = circle.center.y-hh; y < ph; y++)
-			engine_draw_pixel(img, (t_vector2){rx, y}, color);
+		int ww = (int)sqrt(radius_sqr - y * y);
+		int ry = circle.center.y + y;
+		int pw = circle.center.x + ww;
+		// engine_draw_rect(img, (t_rect){(t_vector2){circle.center.x - ww, ry}, (t_vector2){pw-(circle.center.x-ww), 1}}, color);
+
+		draw_x_line(img, (t_vector2){circle.center.x - ww, ry}, pw-(circle.center.x-ww), color, 1);
 	}
+
+
+	// -------------- 240 FPS -------------- //
+	// for (int y = -radius; y <= radius; y++) {
+	// 	int ww = (int)sqrt(radius_sqr - y * y);
+	// 	int ry = circle.center.y + y;
+	// 	int x_start = circle.center.x - ww;
+	// 	int x_end = circle.center.x + ww;
+	// 	int length = x_end - x_start + 1;
+
+	// 	unsigned int *pixel_ptr = (unsigned int *)(img->addr + (ry * img->line_len + x_start * (img->bpp / 8)));
+
+	// 	// Draw the chunk
+	// 	int chunk_size = length - (length % 12);
+	// 	draw_block(pixel_ptr, chunk_size, color);
+
+	// 	// Draw the remaining pixels
+	// 	for (int x = chunk_size; x < length; x++) {
+	// 		pixel_ptr[x] = color;
+	// 	}
+	// }
+
+
+	// --------------  260 FPS -------------- //
+	// draw_filled_circle_bresenham(img, circle);
+
+
+
+	// for (int x = -radius; x < radius ; x++)
+	// {
+	// 	int hh = (int)sqrt(radius_sqr - x * x);
+	// 	int rx = circle.center.x + x;
+	// 	int ph = circle.center.y + hh;
+	// 	for (int y = circle.center.y-hh; y < ph; y++)
+	// 		engine_draw_pixel(img, (t_vector2){rx, y}, color);
+	// }
 }
 
 // void draw_filled_circle(t_img *img, t_circle circle) {

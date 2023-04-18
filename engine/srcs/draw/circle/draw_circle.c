@@ -5,6 +5,7 @@ void	draw_filled_circle(t_img *img, t_circle circle);
 void	draw_thin_circle(t_img *img, t_circle circle);
 void	draw_circle_with_thickness(t_img *img, t_circle circle);
 
+
 /*
  * Draws a circle on the given surface.
  *

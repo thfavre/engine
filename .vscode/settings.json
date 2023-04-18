@@ -19,6 +19,8 @@
 		"mlx_int.h": "c",
 		"rect.h": "c",
 		"stdio.h": "c",
-		"cmath": "c"
+		"cmath": "c",
+		"limits.h": "c",
+		"float.h": "c"
 	}
 }

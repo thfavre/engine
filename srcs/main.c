@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 17:01:37 by thomas            #+#    #+#             */
-/*   Updated: 2023/04/13 18:47:38 by thomas           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 /*
 Questions :
 	- how to close the window when user press on ESC or close button
@@ -114,14 +102,53 @@ int	on_close(t_engine *engine)
 	engine_close(engine);
 	return (0);
 }
-
+float X = 0;
+float Y = 0;
+int color = COLOR_RED;
 int	on_update(t_engine *engine)
 {
 	engine_draw_background(&engine->img, COLOR_BLACK);
 
-	update_balls(engine->data, BALL_NB, engine);
+	// Circles tests
+	// update_balls(engine->data, BALL_NB, engine);
+	// for (int x=100; x<1850; x+=100)
+	// 	for (int y=100; y<1060; y+=100)
+	// 	{
+	// 		// if (x % 200 == 0 && y % 200 == 0)
+	// 			engine_draw_circle(&engine->img, (t_circle){(t_vector2){x, y}, 70, 1, COLOR_YELLOW});
+	// 		engine_draw_circle(&engine->img, (t_circle){(t_vector2){x, y}, 48, 1, COLOR_FIREBRICK4});
+	// 		engine_draw_circle(&engine->img, (t_circle){(t_vector2){x, y}, 40, 1, COLOR_DEEPSKYBLUE3});
+	// 		engine_draw_circle(&engine->img, (t_circle){(t_vector2){x, y}, 33, 1, COLOR_PALEGREEN4});
+	// 	}
 
+	//Lines tests
+	// for (int x=12; x<1900; x+=12)
+	// 	for (int y=12; y<1000; y+=35)
+	// 	engine_draw_line(&engine->img, (t_vector2){x, y}, (t_vector2){x, y+30}, COLOR_YELLOW4, 4);
+
+	// Polygons tests
+	t_vector2 points[5] = {{400, 100}, {600, 150}, {700, 250}, {600, 400}, {300+X , 20+Y}};
+	// t_vector2 points[5] = {{22, 22}, {900, 66}, {1801, 222}, {1890, 1011}, {300+X , 20+Y}};
+	engine_draw_polygon(&engine->img, points, 5, COLOR_DEEPSKYBLUE3);
+	for (int i=0; i < 5; i++)
+	{
+		if (color == COLOR_GREEN && i == 4)
+			engine_draw_circle(&engine->img, (t_circle){points[i], 10, 0, COLOR_GREEN});
+		else
+			engine_draw_circle(&engine->img, (t_circle){points[i], 10, 0, COLOR_RED3});
+	}
+	color = COLOR_RED3;
+	float move_speed = 0.4;
 	engine_frame_update(engine);
+	if (engine->key_pressed[K_D])
+		{X += move_speed;color=COLOR_GREEN;}
+	if (engine->key_pressed[K_A])
+		{X -= move_speed;color=COLOR_GREEN;}
+	if (engine->key_pressed[K_W])
+		{Y -= move_speed;color=COLOR_GREEN;}
+	if (engine->key_pressed[K_S])
+		{Y += move_speed;color=COLOR_GREEN;}
+
 
 
 	if (engine->key_pressed[K_ESC])
