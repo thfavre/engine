@@ -7,10 +7,10 @@
 
 
 void engine_draw_pixel(t_img *img, t_vector2 pos, int color);
-void engine_draw_rect(t_img *img, t_rect rect, int color);
+void engine_draw_rect(t_img *img, t_rect rect, int color); // TODO remove
 
 void draw_line_step(t_img *img, t_vector2 *pos, t_vector2 *d, t_vector2 *s, int *err, int color, int thickness) {
-    t_rect rect = {pos->x - thickness / 2, pos->y - thickness / 2, thickness, thickness};
+    t_rect rect = {{pos->x - thickness / 2, pos->y - thickness / 2}, {thickness, thickness}};
     engine_draw_rect(img, rect, color);
 
     int e2 = 2 * *err;

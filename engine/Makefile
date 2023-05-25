@@ -3,22 +3,23 @@ AR = ar
 CFLAGS = #-Wall -Wextra -Werror
 NAME = libengine.a
 SRC = srcs/draw/draw_rect.c \
-		srcs/draw/line/draw_line.c \
+		srcs/draw/line/engine_draw_line.c \
 		srcs/draw/line/draw_x_line.c \
-		srcs/draw/polygon/draw_polygon.c \
-		srcs/draw/draw_pixel.c \
-		srcs/draw/circle/draw_circle.c \
+		srcs/draw/polygon/engine_draw_polygon.c \
+		srcs/draw/engine_draw_pixel.c \
+		srcs/draw/circle/engine_draw_circle.c \
 		srcs/draw/circle/draw_filled_circle.c \
 		srcs/draw/circle/draw_thin_circle.c \
 		srcs/draw/circle/draw_circle_with_thickness.c \
-		srcs/draw/draw_background.c \
+		srcs/draw/engine_draw_background.c \
 		srcs/draw/color.c \
 		srcs/key/on_keyreleased.c \
 		srcs/key/on_keypressed.c \
 		srcs/key/keys_init.c \
-		srcs/init.c \
+		srcs/engine_init.c \
 		srcs/frame_update.c \
-		srcs/close.c
+		srcs/engine_update.c \
+		srcs/engine_close.c
 OBJ = $(SRC:.c=.o)
 INCLUDES = includes
 

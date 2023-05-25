@@ -1,4 +1,9 @@
 #include "engine.h"
+# include "events.h"
+
+void	keys_init(bool *key_pressed);
+int		on_keypressed(int keycode, bool *key_pressed);
+int		on_keyreleased(int keycode, bool *key_pressed);
 
 /*
  * Closes the engine, destroys the window, and releases the memory resources
@@ -20,6 +25,7 @@ void	engine_init(void *data, int (*on_update)(t_engine *engine),
 	keys_init(engine.key_pressed);
 	mlx_hook(engine.win, KeyPress, KeyPressMask, on_keypressed, &engine.key_pressed);
 	mlx_hook(engine.win, KeyRelease, KeyReleaseMask, on_keyreleased, &engine.key_pressed);
+    engine.mouse_pos = (t_vector2){0, 0};
 
 	mlx_hook(engine.win, DestroyNotify, NoEventMask, on_close, &engine); // add a struct to pass the engine and the user callback?
 	mlx_loop_hook(engine.mlx, on_update, &engine);

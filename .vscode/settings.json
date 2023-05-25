@@ -21,6 +21,9 @@
 		"stdio.h": "c",
 		"cmath": "c",
 		"limits.h": "c",
-		"float.h": "c"
+		"float.h": "c",
+		"key.h": "c",
+		"events.h": "c",
+		"line.h": "c"
 	}
 }

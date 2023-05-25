@@ -4,8 +4,8 @@ TARGET = project
 SRC = srcs/main.c
 OBJ = $(SRC:.c=.o)
 INCLUDES = includes
-
-LIBS = -Lengine -lengine -Lengine/mlx/mlx_linux -lmlx -lXext -lX11 -lm #-Lengine -lengine -Lengine/mlx -lmlx -framework OpenGL -framework AppKit
+# remove libmlx.a
+LIBS = -Lengine -lengine -Lengine/mlx -lmlx -framework OpenGL -framework AppKit # -Lengine -lengine -Lengine/mlx/mlx_linux -lmlx -lXext -lX11 -lm #
 
 
 all: $(TARGET)

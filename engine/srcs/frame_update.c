@@ -23,10 +23,12 @@ double get_elapsed_time() // DEBUG stuff
  * @param engine: pointer to the engine structure containing data about
  *                the window and image
 */
-void	engine_frame_update(t_engine *engine)
+void	frame_update(t_engine *engine)
 {
 	static	int all_fps;
 	static	int frame_count;
+	static	int total_frame_count;
+	static	int total_fps_count;
 
 	mlx_put_image_to_window(engine->mlx, engine->win, \
 		engine->img.img, 0, 0);
@@ -35,9 +37,11 @@ void	engine_frame_update(t_engine *engine)
 	double fps = 1.0 / engine->dt;
 	all_fps += fps;
 	frame_count++;
-	if (frame_count == 500)
+	total_frame_count++;
+	if (frame_count == 100)
 	{
-		printf("average fps: %d  (dt: %f)\n", all_fps / frame_count, engine->dt);
+		total_fps_count += all_fps;
+		printf("last %d frames avrage fps: %d\t(total: %d)\t(dt: %f)\n", frame_count, all_fps / frame_count, total_fps_count / total_frame_count, engine->dt);
 		all_fps = 0;
 		frame_count = 0;
 	}
